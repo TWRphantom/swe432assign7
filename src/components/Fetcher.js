@@ -74,6 +74,8 @@ export default function Fetcher(props) {
                 <Skeleton variant="text" />
                 <Skeleton variant="circle" width={40} height={40} />
                 <Skeleton variant="rect" width={200} height={118} />
+                <Skeleton animation = {false} />
+                <Skeleton animation = "wave" />
                 </React.Fragment>)}
                 </Paper>
               </Grid>
