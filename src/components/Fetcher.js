@@ -45,41 +45,17 @@ export default function Fetcher(props) {
 
 
     return (
-        <Grid
-        container
-        direction="row"
-        justify="center"
-        alignItems="center"
-        spacing={2}
-        >
-          <Grid item xs>
-            <Typography variant="h6">submits: {clicks}</Typography>
-          </Grid>
-            <Grid item xs>
-              <TextField 
-              label="Type something"
-              helperText="This will be echo echo by the server"
-              value={inputValue} onChange={handleChange} inputProps={{ 'aria-label': 'description' }} />
-            </Grid>
-            <Grid item xs>
-              <Button onClick={doSomething} variant="contained" color="primary" data-something="submit">
-                  submit</Button>
-            </Grid>
-            <Grid item xs>
-              <Paper elevation={1} style={
-                {height:200, width:200, wordBreak: "break-all", padding:4}
-              } >
-                {response?JSON.stringify(response):
-                (<React.Fragment>
-                <Skeleton variant="text" />
-                <Skeleton variant="circle" width={40} height={40} />
-                <Skeleton variant="rect" width={200} height={118} />
-                <Skeleton animation = {false} />
-                <Skeleton animation = "wave" />
-                </React.Fragment>)}
-                </Paper>
-              </Grid>
-        </Grid>
-
+        <Rating
+            name="hover-feedback"
+            value={value}
+            precision={0.5}
+            onChange={(event, newValue) => {
+                setValue(newValue);
+            }}
+            onChangeActive={(event, newHover) => {
+                setHover(newHover);
+            }}
+        />
+        {value !== null && <Box ml={2}>{labels[hover !== -1 ? hover : value]}</Box>}
     );
 }
