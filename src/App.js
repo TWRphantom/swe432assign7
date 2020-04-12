@@ -18,34 +18,20 @@ export const getLocationUrlData = () => {
 };
 export const servicePath ='/echo';
 
-function App(props) {
-  const [weekDay, setWeekDay] = React.useState("Monday");
+function App() {
   return (
-    <div style={{flexGrow: 1}}>
-      <Grid 
-      container
-      direction="column"
-      justify="center"
-      alignItems="stretch"
-      spacing={2}
-      >
-        <Grid item xs>
-          <Paper elevation={1}>
-            <Hooks name={aFunc().name}/>
-            </Paper>
-        </Grid>
-        <Grid item xs>
-          <Paper elevation={1}>
-            <Fetcher  value={weekDay} url={`${getLocationUrlData().url}${servicePath}`}/>
-            </Paper>
-          </Grid>
-        <Grid item xs>
-          <Paper elevation={1}>
-            <ToggleButtons value={weekDay} onChange ={setWeekDay}/>
-          </Paper>
-          </Grid>
-      </Grid>
-    </div>
+    <Rating
+      name="hover-feedback"
+      value={value}
+      precision={0.5}
+      onChange={(event, newValue) => {
+        setValue(newValue);
+      }}
+      onChangeActive={(event, newHover) => {
+        setHover(newHover);
+      }}
+    />
+    {value !== null && <Box ml={2}>{labels[hover !== -1 ? hover : value]}</Box>}
   );
 }
 
