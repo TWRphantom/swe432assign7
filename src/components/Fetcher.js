@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Skeleton from '@material-ui/lab/Skeleton';
+import Rating from '@material-ui/lab/Rating';
 import { Paper, Button, Grid } from '@material-ui/core';
 
 export default function Fetcher(props) {
